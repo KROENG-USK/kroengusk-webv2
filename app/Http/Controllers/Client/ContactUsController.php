@@ -13,7 +13,7 @@ class ContactUsController extends Controller
     function send(Request $request)
     {
         try {
-            $request->validate([
+            $valid = $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
                 'nohp' => 'required|string|max:255',
@@ -23,10 +23,10 @@ class ContactUsController extends Controller
             date_default_timezone_set("Asia/Jakarta");
 
             $query = new ContactUS();
-            $query->name        = $request->input('name');
-            $query->email       = $request->input('email');
-            $query->nohp        = $request->input('nohp');
-            $query->message     = $request->input('message');
+            $query->name        = $valid['name'];
+            $query->email       = $valid['email'];
+            $query->nohp        = $valid['nohp'];
+            $query->message     = $valid['message'];
             $query->datetimemsg = date("Y-m-d G:i:s");
             $query->save();
 
