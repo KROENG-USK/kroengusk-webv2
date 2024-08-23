@@ -10,6 +10,8 @@
 .env.production
 .phpactor.json
 .phpunit.result.cache
+raw.blade.php
+raw.html
 Homestead.json
 Homestead.yaml
 auth.json
@@ -20,6 +22,7 @@ yarn-error.log
 /.vscode
 /compress
 /public/assets/images
+/public/documents
 /public/divisi
 /public/images
 /public/postimages/
