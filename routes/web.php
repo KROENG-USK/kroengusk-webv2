@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Include the admin routes
+require __DIR__.'/admin.php';
+
 // Include the client routes
 require __DIR__.'/client.php';
 
