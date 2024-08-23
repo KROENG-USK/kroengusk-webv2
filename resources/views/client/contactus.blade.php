@@ -23,7 +23,7 @@
     <title>Contact US | KROENG | UNIVERSITAS SYIAH KUALA</title>
 </head>
 <body>
-    @include('includes.home.header');
+    @include('includes.home.header')
     <div class="container">
         <div class="row" style="margin: 4%">
             
@@ -44,7 +44,8 @@
                 <!-- Blog post -->
                 <div class="card cb1 mb-5">
                     <h5 class="card-header">Hubungi kami dengan mengisi form di bawah ini: </h5>
-                    <form class="account-content" action="{{ route('client.contact-us.send') }}" name="submit_data" id="submit_data" method="POST">
+                    <form class="account-content" action="{{ route('client.contact-us.send') }}" 
+                        name="submit_data" id="submit_data" method="POST">
                         @csrf
                         <!-- Nama Lengkap -->
                         <div class="card-body">
@@ -140,7 +141,6 @@
                     return response.text();
                 })
                 .then(text => {
-                    console.log("Response text: " + text);
                     try {
                         const data = JSON.parse(text);
                         if (data.success) {
@@ -149,14 +149,10 @@
                                 text: "Pesan anda telah dikirim ke admin website kroeng...",
                                 icon: "success"
                             }).then(_ => {
-                                fullname.value = "";
-                                email.value    = "";
-                                nohp.value     = "";
-                                message.value  = "";
+                                form.reset();
                                 location.reload();
                             });
                         }
-
                         else {
                             swal({
                                 title: "Gagal",
