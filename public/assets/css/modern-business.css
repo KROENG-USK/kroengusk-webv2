@@ -17,6 +17,13 @@ body {
     background-attachment: fixed;
 }
 
+.centered-content {
+    display: flex;
+    justify-content: center;  /* Untuk center secara horizontal */
+    align-items: center;      /* Untuk center secara vertikal */
+    min-height: 100vh;        /* Mengatur tinggi section agar 100% dari viewport */
+}
+
 .card {
     /* width: 90%; */
     /* max-width: 400px; */

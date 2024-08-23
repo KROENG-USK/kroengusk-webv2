@@ -69,7 +69,7 @@
     </div>
     <!-- END IMAGE SLIDER-->
 
-    <div class="container p4">
+    <div class="container p-4">
         <!-- welcome text -->
         <p class="text-center text-white fw-bolder fs-4 animate__animated animate__fadeInUp">SELAMAT DATANG DI WEBSITE KOMUNITAS ROBOTIC ELECTRICAL ENGINEERING</p>
         <p class="text-center text-white fw-bolder fs-4 animate__animated animate__fadeInUp">UNIVERSITAS SYIAH KUALA</p>
