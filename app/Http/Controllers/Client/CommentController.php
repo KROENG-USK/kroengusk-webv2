@@ -12,7 +12,8 @@ class CommentController {
     function store(Request $request) 
     {
         try {
-            $request->validate([
+            $validatePost = $request->validate([
+                'postId' => 'required|integer|min:1',
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
                 'comment' => 'required|string'
@@ -21,10 +22,10 @@ class CommentController {
             date_default_timezone_set("Asia/Jakarta");
     
             $comment = new Comment();
-            $comment->postId      = $request->input('postId');
-            $comment->name        = $request->input('name');
-            $comment->email       = $request->input('email');
-            $comment->comment     = $request->input('comment');
+            $comment->postId      = $validatePost['postId'];
+            $comment->name        = $validatePost['name'];
+            $comment->email       = $validatePost['email'];
+            $comment->comment     = $validatePost['comment'];
             $comment->status      = 0;
             $comment->postingDate = date("Y-m-d G:i:s");
             $comment->save();

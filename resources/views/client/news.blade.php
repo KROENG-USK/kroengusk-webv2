@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     
     <!-- CSS modern-business.css -->
-    <link href="{{ asset('assets/css/modern-business.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/modern-business.css') }}">
 
     <!-- calendar css -->
     <link rel="stylesheet" href="{{ asset('assets/css/calendar.css') }}">
@@ -68,7 +68,7 @@
                                             <img src="{{ asset('images/usericon.png') }}" class="d-flex mr-3 rounded-circle">
                                             <div class="media-body">
                                                 <h5 class="mt-0">{{ $comment->name }}</h5>
-                                                <p>{{ $comment->comment}}</p>
+                                                <p>{{ $comment->comment }}</p>
 
                                                 <span style="font-size: 12px">{{ $comment->postingDate }}</span>
                                             </div>
@@ -159,9 +159,11 @@
     @include('includes.home.footer')
     
     <script src="{{ asset('assets/calendar/app.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/sweetalert.min.js') }}"></script>
+
+    <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/sweetalert.min.js') }}"></script>
 
     <script>
         document.getElementById('commentForm').addEventListener('submit', (event) => {
@@ -203,10 +205,8 @@
                             title: "Comment successfully submit!",
                             text: "Comment will be display after admin review",
                             icon: "success"
-                        }).then(() => { 
-                            name.value    = "";
-                            email.value   = "";
-                            comment.value = "";
+                        }).then(() => {
+                            form.reset();
                             location.reload(); 
                         });
                     }
