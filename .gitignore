@@ -20,6 +20,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+/routes/admin.php
+
+/app/Http/Controllers/Admin
 /app/Models/Admin
 /compress
 /public/assets/images
