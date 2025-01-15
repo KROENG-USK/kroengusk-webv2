@@ -20,18 +20,19 @@ class RepositoryProject extends Controller
             $query = RepositoryProjectDB::where('id', $validate['id'])->first();
             
             if (!$query) {
-                return response()->json(['success' => false, 'error' => 'data not found']);
+                return response()->json(['StatusCode' => 404, 'success' => false, 'error' => 'data not found'], 404);
             }
     
             $query->update([
                 'Is_delete' => 1
             ]);
 
-            return response()->json(['success' => true]);
+            return response()->json(['StatusCode' => 200, 'success' => true], 200);
 
         } catch (\Exception $e) {
             Log::error("error delete RepositoryProject: ". $e->getMessage());
             return response()->json([
+                'StatusCode' => 500,
                 'success' => false,
                 'error' => $e->getMessage()
             ], 500);
@@ -62,9 +63,10 @@ class RepositoryProject extends Controller
         catch (\Exception $e) {
             Log::error("Error store repository: ". $e->getMessage());
             return response()->json([
+                'StatusCode' => 500,
                 'success' => false,
                 'error' => $e->getMessage()
-            ]);
+            ], 500);
         }
     }
 

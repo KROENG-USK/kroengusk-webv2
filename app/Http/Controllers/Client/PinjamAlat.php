@@ -45,10 +45,11 @@ class PinjamAlat extends Controller
             $query->Is_Active   = 1;
             $query->save();
 
-            return response()->json(['success' => true]);
+            return response()->json(['StatusCode' => 200, 'success' => true], 200);
         } catch (\Exception $e) {
             Log::error('Error in post data'. $e->getMessage());
             return response()->json([
+                'StatusCode' => 500,
                 'success' => false,
                 'error' => $e->getMessage()
             ], 500);

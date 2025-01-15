@@ -30,11 +30,11 @@ class CommentController {
             $comment->postingDate = date("Y-m-d G:i:s");
             $comment->save();
     
-            return response()->json(['success' => true]);
+            return response()->json(['StatusCode' => 200, 'success' => true], 200);
 
         } catch (\Exception $e) {
             Log::error('Error in storing comment: ' . $e->getMessage());
-            return response()->json(['success' => false, 'error' => $e->getMessage()], 500);
+            return response()->json(['StatusCode' => 500, 'success' => false, 'error' => $e->getMessage()], 500);
         }
     }
 }

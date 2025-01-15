@@ -60,7 +60,7 @@
 
                             <tr>
                                 <td>                                
-                                    <a href="{{ route('client.inventory.index') }}" class="btn btn-primary waves-effect waves-light">Kembali</a>
+                                    <a href="{{ route('client.inventory.index') }}" class="btn btn-primary waves-effect waves-light col-sm-5">Back</a>
                                 </td>
                             </tr>
                         </tbody>

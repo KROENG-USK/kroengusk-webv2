@@ -30,11 +30,12 @@ class ContactUsController extends Controller
             $query->datetimemsg = date("Y-m-d G:i:s");
             $query->save();
 
-            return response()->json(['success' => true]);
+            return response()->json(['StatusCode' => 200, 'success' => true], 200);
 
         } catch (\Exception $e) {
             Log::error('Error in send message contactus: '. $e->getMessage());
             return response()->json([
+                'StatusCode' => 500,
                 'success' => false,
                 'error' => $e->getMessage()
             ], 500);
